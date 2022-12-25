@@ -12,7 +12,7 @@
 //variables estaticas y constantes que controlan la funcionalidad del codigo
 static int animationPeriod = 4;
 static int isAnimate = 0;
-//declarando cambios
+//declarando variables de fact y rango
 const int fact = 3;
 const int x = 80;
 const double DEG2RAD = 3.1415926535897932384 / 180;
@@ -30,7 +30,7 @@ void animate(int value) {
 		glutTimerFunc(animationPeriod, animate, 1);
 	}
 }
-
+//Fnciones para el uso del teclado
 void keyInput(unsigned char key, int x, int y) {
 	switch (key) {
 	case 27:
@@ -227,7 +227,7 @@ void render(void) {
 	glVertex2f(157 + x, 85 * fact + w);
 
 	glEnd();
-
+	//condicion si es que choca o no el dino con el cactus
 	if (collision(1.0)) {
 		reset();
 	}
