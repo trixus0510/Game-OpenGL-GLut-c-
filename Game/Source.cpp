@@ -12,7 +12,7 @@
 //variables estaticas y constantes que controlan la funcionalidad del codigo
 static int animationPeriod = 4;
 static int isAnimate = 0;
-
+//declarando cambios
 const int fact = 3;
 const int x = 80;
 const double DEG2RAD = 3.1415926535897932384 / 180;
