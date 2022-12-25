@@ -9,6 +9,7 @@
 #include <cmath>
 #include <math.h>
 
+//variables estaticas y constantes que controlan la funcionalidad del codigo
 static int animationPeriod = 4;
 static int isAnimate = 0;
 
