@@ -22,6 +22,9 @@ static int flag = 0;
 static int walk = 0;
 static int x_ = 2500;
 using namespace std;
+
+
+int refreshMillis = 30;
 //funciones que da la sensacion de movimiento creo xd
 void animate(int value) {
 	if (isAnimate) {
@@ -63,10 +66,10 @@ void specialKeyInput(int key, int x, int y) {
 }
 
 void draw_circle(double theta, double inner_radius, double outer_radius, int x, int y, int sin_sign = 1, int cos_sign = 1) {
-	//cactus 
+	//Radio Hojas Intimpas
 	glBegin(GL_POINTS);
 	glColor3f(0.5, 0.5, -0.5);
-	for (double r = outer_radius; r >= inner_radius; r -= 3.0) {
+	for (double r = outer_radius; r >= inner_radius; r -= 8.0) {
 		for (double i = 0; i < theta; i++) {
 			double degInRad = i * DEG2RAD;
 			glVertex2f(cos_sign * cos(degInRad) * r + x, sin_sign * sin(degInRad) * r + y);
@@ -77,36 +80,46 @@ void draw_circle(double theta, double inner_radius, double outer_radius, int x, 
 
 void generate_tree(int x_, double len) {
 	int x = 30;
-	//cactus
+	//Tronco Intimpa
 	glColor3f(0.5, 0.5, -0.5);
 	glBegin(GL_POLYGON);
-	glVertex2f(x_, 250 * len);
+	glVertex2f(x_ + 10, 250 * len);
 	glVertex2f(x_ + x, 250 * len);
 	glVertex2f(x_ + x, 650 * len);
-	glVertex2f(x_, 650 * len);
+	glVertex2f(x_ + 10, 650 * len);
 	glEnd();
 
-	draw_circle(180.0, 0.0, x / 2, x_ + x / 2, 650 * len);
+	// Hojas Intimpa
+	
+	draw_circle(180.0, 0.0, 50, x_ + x, 300 * len, -1);
+	draw_circle(180.0, 0.0, 50, x_, 300 * len, -1, -1);
 
-	glBegin(GL_POLYGON);
-	glVertex2f(x_ + x + 25, 400 * len);
-	glVertex2f(x_ + x + 50, 400 * len);
-	glVertex2f(x_ + x + 50, 600 * len);
-	glVertex2f(x_ + x + 25, 600 * len);
-	glEnd();
+	
+	draw_circle(180.0, 0.0, 50, x_ + x, 350 * len, -2);
+	draw_circle(180.0, 0.0, 50, x_, 350 * len, -2, -2);
 
-	draw_circle(180.0, 0.0, 25.0 / 2, x_ + x + 75.0 / 2, 600 * len);
+	
+	draw_circle(180.0, 0.8, 60, x_ + x, 400 * len, -1);
+	draw_circle(180.0, 0.8, 60, x_, 400 * len, -1, -1);
 
-	glBegin(GL_POLYGON);
-	glVertex2f(x_ - 25, 400 * len);
-	glVertex2f(x_ - 50, 400 * len);
-	glVertex2f(x_ - 50, 600 * len);
-	glVertex2f(x_ - 25, 600 * len);
-	glEnd();
+	
+	draw_circle(180.0, 0.8, 60, x_ + x, 450 * len, -2);
+	draw_circle(180.0, 0.8, 60, x_, 450 * len, -2, -2);
 
-	draw_circle(180.0, 0.0, 25.0 / 2, x_ - 75.0 / 2, 600 * len);
-	draw_circle(90.0, 25, 50, x_ + x, 400 * len, -1);
-	draw_circle(90.0, 25, 50, x_, 400 * len, -1, -1);
+	
+	draw_circle(180.0, 0.0, 50, x_ + x, 500 * len, -1);
+	draw_circle(180.0, 0.0, 50, x_, 500 * len, -1, -1);
+
+	
+	draw_circle(180.0, 0.0, 50, x_ + x, 550 * len, -2);
+	draw_circle(180.0, 0.0, 50, x_, 550 * len, -2, -2);
+
+	
+	draw_circle(180.0, 0.0, 50, x_ + x, 600 * len, -1);
+	draw_circle(180.0, 0.0, 50, x_, 600 * len, -2, -2);
+
+	draw_circle(180.0, 0.0, 60, x_ + x, 650 * len, -1);
+	draw_circle(180.0, 0.0, 60, x_, 650 * len, -1, -1);	
 }
 
 void reset() {
